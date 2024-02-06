@@ -1,0 +1,19 @@
+
+<div id="login_form">
+  <div id="logo">
+    <%= image_tag 'icon.svg', id: "logo_img" %>
+    <span>ShareCake</span>
+  </div>
+  <%= form_with url: login_path, method: :post, local: true, id: 'login_form_body' do |f| %>
+    <% if flash.now[:alert] %>
+      <div class="alert_container">
+        <%= flash.now[:alert] %>
+      </div>
+    <% end %>
+    <%= f.label :username %>
+    <%= f.text_field :username, placeholder: "Username", autofocus: true %>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.submit "Login" %>
+  <% end %>
+</div>
