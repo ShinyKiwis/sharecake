@@ -1,8 +1,23 @@
-<div class="header">
+<div class="header" data-controller="header">
   <div>
     <%= render 'shared/logo' %>
   </div>
   <div class="user_container">
-    <%= current_user.username %> 
+    <div class="user_default_picture">
+      <%= get_profile_letters(current_user.name) %>
+    </div>
+    <%= current_user.name %> 
+    <%= image_tag 'dropdown', class: "icon", data: {action: "click->header#toggle"} %>
+    <div class="user_actions_modal" data-header-target="modal">
+      <span>Friend code: <%= current_user.friend_code %></span>
+      <div class="user_action">
+        <%= image_tag 'account', class: "icon" %>
+        <%= link_to "Account", settings_path%>
+      </div>
+      <div class="user_action">
+        <%= image_tag 'logout', class: "icon" %>
+        <%= button_to "Logout", logout_path, method: :delete, form: {data: {turbo_confirm: "Are you sure ?"}} %>
+      </div>
+    </div>
   </div>
 </div>

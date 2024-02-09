@@ -95,5 +95,82 @@
 }
 
 .user_container {
+  margin-top: 1.4em;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.4em;
+  font-weight: 400;
+  gap: 0.5em;
+  position: relative;
+}
+
+.user_default_picture {
+  width: fit-content;
+  height: auto;
+  padding: 0.8em;
+  font-size: 1.2rem;
+  background-color: #3d6ea6;
+  color: white;
+  font-weight: bold;
+  border-radius: 9999px;
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  cursor: pointer;
+}
+
+.user_actions_modal {
+  position: absolute;
+  top: 130%;
+  right: 0;
+  left: 0;
+  border-radius: 0.2em;
+  background-color: white;
+  padding: 1em;
+  display: none;
+  border: solid 2px #c9c7c7;
+  box-shadow: 0px 5px 8px #ccc;
+  font-size: 1.2rem;
+}
+
+.user_actions_modal a {
+  text-decoration: none;
+  font-weight: 500;
+  width: 100%;
+}
+
+.user_actions_modal a:link,
+a:visited {
+  color: inherit;
+}
+
+.user_actions_modal form {
+  width: 100%;
+}
+
+.user_actions_modal button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0;
+  cursor: pointer;
+  width: inherit;
+  text-align: left;
+}
+
+.user_action {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.user_action:hover {
+  background-color: #ebe8e8;
 }
