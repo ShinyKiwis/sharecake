@@ -1,6 +1,8 @@
 <div class="header" data-controller="header">
   <div>
-    <%= render 'shared/logo' %>
+    <%= link_to root_path do%>
+      <%= render 'shared/logo' %>
+    <% end %>
   </div>
   <div class="user_container">
     <div class="user_default_picture">
@@ -12,7 +14,7 @@
       <span>Friend code: <%= current_user.friend_code %></span>
       <div class="user_action">
         <%= image_tag 'account', class: "icon" %>
-        <%= link_to "Account", settings_path%>
+        <%= link_to "Account", user_path(current_user)%>
       </div>
       <div class="user_action">
         <%= image_tag 'logout', class: "icon" %>

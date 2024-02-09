@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Account Settings</h2>
+  <%= form_with model: @user, url: user_path(@user), method: :patch do |f|%>
+    <% if flash.now[:alert] %>
+      <div class="alert_container">
+        <%= flash.now[:alert] %>
+      </div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="notice_container">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <%= f.label "Username" %>
+    <%= f.text_field :username %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %>
+    <%= f.label "Birthday" %>
+    <%= f.date_field :bday, placeholder: "Set your birthday" %>
+    <%= f.label "Old password" %>
+    <%= f.password_field :password, placeholder: "Your old password" %>
+    <%= f.label "New password" %>
+    <%= f.password_field :new_password, placeholder: "Your new password" %> 
+    <%= f.submit "Update" %>
+  <% end %>
+</div>

@@ -4,9 +4,6 @@ class PagesController < ApplicationController
   def dashboard
   end
 
-  def settings
-  end
-
   private
   def authenticate
     redirect_to login_path if not current_user

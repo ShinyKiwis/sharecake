@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#dashboard'
-  get "/settings", to: "pages#settings"
+  resources :users, only: [:show, :update]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

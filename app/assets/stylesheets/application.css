@@ -39,6 +39,10 @@
   margin-inline: auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 #logo > span {
   font-family: "Single Day", cursive;
   font-weight: 500;
@@ -64,7 +68,7 @@
   font-size: 1.2em;
 }
 
-#login_form_body > input[type="submit"] {
+input[type="submit"] {
   background-color: #2d527c;
   color: white;
   font-weight: 500;
@@ -76,13 +80,19 @@
   margin-top: 0.8em;
 }
 
-#login_form_body > input[type="submit"]:hover {
+input[type="submit"]:hover {
   background-color: #3d6ea6;
   transition: 0.4s;
 }
 
 .alert_container {
   color: #a82323;
+  text-align: center;
+  margin-top: 0.4em;
+}
+
+.notice_container {
+  color: #30a823;
   text-align: center;
   margin-top: 0.4em;
 }
@@ -173,4 +183,36 @@ a:visited {
 
 .user_action:hover {
   background-color: #ebe8e8;
+}
+
+/* User Settings */
+.container {
+  margin-inline: auto;
+  width: 50%;
+}
+
+.container h2 {
+  color: #3d6ea6;
+}
+
+.container form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+.container form>input {
+  font-size: 1em;
+  padding: 0.2em 0.4em;
+}
+
+.container form>label {
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+}
+
+.container form>input[type="submit"] {
+  width: 50%;
 }

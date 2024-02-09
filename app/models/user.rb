@@ -2,7 +2,7 @@ class User < ApplicationRecord
   before_create :generate_friend_code
   has_secure_password
 
-  validates :username, presence: true
+  validates :username, :name, presence: true
 
   private
   def generate_friend_code
