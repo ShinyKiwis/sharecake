@@ -1,0 +1,40 @@
+<h2>Add your friend</h2>
+<%= form_with model: user, url: add_friend_path, method: :patch, class: "friend_code_form" do |f| %>
+  <% if flash[:alert] %>
+    <div class="alert_container">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>    
+  <% if flash[:notice] %>
+    <div class="notice_container">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <%= f.text_field :new_friend_code, placeholder: "Your friend's code" %>
+  <%= f.submit "Add", style: "margin-top: 0.2em;" %>
+<% end %>
+<h2>Request List</h2>
+<ul class="friend_list">
+  <% @request_friend_list.each do |friend|%>
+    <% if is_waiting_for_accepted_friend?(friend.id) %>
+      <li>
+        <%= friend.name %>
+          <div>
+            <%= button_to "Accept" , accept_path(friend), method: :patch, class: 'accept_button' %>
+            <%= button_to "Reject" , reject_path(friend), method: :patch, class: 'reject_button' %>
+          </div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<h2>Friend List</h2>
+<ul class="friend_list">
+<% user.friends.each do |friend|%>
+  <% if not is_waiting_for_accepted_friend?(friend.id) %>
+    <li class="accepted_friend" >
+      <%= friend.name %>
+      <%= button_to "Unfriend" , reject_path(friend), method: :patch, form: {data: {turbo_confirm: "Unfriend with #{friend.name}"}}, class: 'reject_button' %>
+    </li>
+  <% end %>
+<% end %>
+</ul>

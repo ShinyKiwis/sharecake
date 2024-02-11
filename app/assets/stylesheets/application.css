@@ -20,6 +20,16 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
+.main_content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 #logo_img {
   width: 4em;
   height: auto;
@@ -87,12 +97,14 @@ input[type="submit"]:hover {
 
 .alert_container {
   color: #a82323;
+  font-weight: 500;
   text-align: center;
   margin-top: 0.4em;
 }
 
 .notice_container {
   color: #30a823;
+  font-weight: 500;
   text-align: center;
   margin-top: 0.4em;
 }
@@ -191,8 +203,10 @@ a:visited {
   width: 50%;
 }
 
-.container h2 {
+h2 {
   color: #3d6ea6;
+  margin: 0;
+  margin-bottom: 0.4em;
 }
 
 .container form {
@@ -215,4 +229,99 @@ a:visited {
 
 .container form>input[type="submit"] {
   width: 50%;
+}
+
+/* Dashboard */
+.main_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-top: 1em;
+}
+
+.friend_container {
+  width: 15%;
+  padding-inline-start: 4em;
+}
+
+.friend_code_form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  width: 80%;
+  margin-bottom: 1em;
+}
+
+
+.friend_code_form>label {
+  font-size: 1.4em;
+  color: #3d6ea6;
+  font-weight: 500;
+}
+
+.friend_code_form>input {
+  font-size: 1em;
+  padding: 0.2em 0.4em;
+}
+
+.friend_list {
+  padding: 0;
+}
+
+.friend_list > li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+}
+
+.friend_list .accepted_friend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.friend_list > li > div {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin-top: 0.4em;
+}
+
+.friend_list button[type="submit"] {
+  border: none;
+  cursor: pointer;
+  font-size: 0.8em;
+  padding: 0.4em 0.8em;
+  border-radius: 0.4em;
+}
+
+.accept_button {
+  background-color: #30a823;
+  color: white;
+  font-weight: 500;
+}
+
+.accept_button:hover {
+  background-color: #37be28;
+}
+
+.reject_button {
+  background-color: #a82323;
+  color: white;
+  font-weight: 500;
+}
+
+.reject_button:hover {
+  background-color: #c82929;
+}
+
+.calendar_container {
+  width: 70%;
+}
+
+.event_container {
+  width: 15%;
 }

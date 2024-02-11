@@ -11,9 +11,11 @@
   </head>
 
   <body>
-    <% unless request.path == login_path %>
-      <%= render 'shared/header'%>
-    <% end %>
-    <%= yield %>
+    <div class="main_content">
+      <% unless request.path == login_path %>
+        <%= render 'shared/header'%>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
