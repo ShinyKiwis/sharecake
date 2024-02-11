@@ -1,6 +1,10 @@
 module PagesHelper
   def get_profile_letters(name)
-    name.split[-2..-1].map {|word| word[0].upcase}.join
+    if name.split.length > 1
+      return name.split[-2..-1].map {|word| word[0].upcase}.join
+    else
+      return name[0].upcase
+    end
   end
 
   def is_waiting_for_accepted_friend?(friend_id)

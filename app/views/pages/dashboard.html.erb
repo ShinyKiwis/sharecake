@@ -3,8 +3,13 @@
     <%= render 'pages/friend_container', user: current_user %>
   </div>
   <div class="calendar_container">
-    <%= month_calendar do |date| %>
+    <%= month_calendar(events: @events) do |date, events| %>
       <%= date.day %>
+      <% events.each do |event| %>
+        <div class="event">
+          <%= event.name %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class="event_container">
