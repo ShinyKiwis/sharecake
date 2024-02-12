@@ -28,7 +28,8 @@ class User < ApplicationRecord
   def generate_bday_event
     if not self.bday.nil? || attribute_changed?(:bday)
       if Event.exists?(owner: self.id)
-        Event.update(start_time: self.bday, owner: self.id)
+        Event.find_by(owner: self.id).update(start_time: self.bday)
+
       else
         Event.create(name: "🎂 #{self.name}'s Birthday", start_time: self.bday, owner: self.id)
       end

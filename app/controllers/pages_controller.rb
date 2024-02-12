@@ -23,6 +23,9 @@ class PagesController < ApplicationController
 
     bdays_in_requested_month = Event.where("EXTRACT(MONTH from start_time) = ? AND owner IN (?)", request_date.month, friend_ids)
     bdays_in_requested_month.each do |bday|
+      if current_user.id != bday.owner && Friendship.find_by(user_id: current_user.id, friend_id: bday.owner).confirmation == false
+        next
+      end
       bday.name = "🎂 Your Birthday" if bday.owner == current_user.id
       bday.start_time = bday.start_time.change(year: request_date.year)
       bdays << bday
