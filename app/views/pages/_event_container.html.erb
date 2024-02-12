@@ -1,1 +1,11 @@
 <h2>Upcoming events</h2>
+<div class="events_list">
+  <% @all_events.each do |event| %>
+    <div class="event_item">
+      <span>
+        🗓️ <%= event.start_time.strftime("%d/%m/%Y") %>
+      </span>
+      <%= event.name %>
+    </div>
+  <% end %>
+</div>

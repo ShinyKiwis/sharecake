@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def dashboard
     request_friendship_list = helpers.get_request_friendship_list
     @events = get_bday(params[:start_date])
+    @all_events = get_all_bday
     @request_friend_list = []
     request_friendship_list.each do |request|
       @request_friend_list << User.find(request.friend_id)
@@ -34,5 +35,18 @@ class PagesController < ApplicationController
   end
 
   def get_all_bday
+    bdays = []
+    friend_ids = current_user.friends.pluck(:id) << current_user.id
+    all_friend_bdays = Event.where("owner IN (?)", friend_ids)
+
+    all_friend_bdays.each do |bday|
+      if current_user.id != bday.owner && Friendship.find_by(user_id: current_user.id, friend_id: bday.owner).confirmation == false
+        next
+      end
+      bday.name = "🎂 Your Birthday" if bday.owner == current_user.id
+      bday.start_time = bday.start_time.change(year: Time.now.year)
+      bdays << bday
+    end
+    bdays
   end
 end

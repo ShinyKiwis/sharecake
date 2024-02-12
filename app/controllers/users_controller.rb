@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user.username = user_params[:username]
     @user.name = user_params[:name]
     @user.bday = user_params[:bday]
+    @user.email = user_params[:email]
     if not user_params[:password].blank?
       if @user.authenticate(user_params[:password])
         @user.password = user_params[:new_password]
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :name, :bday, :password, :new_password)
+    params.require(:user).permit(:username, :name, :email, :bday, :password, :new_password)
   end
 
   def friend_params

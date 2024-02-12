@@ -433,3 +433,21 @@ h2 {
   font-weight: 500;
   color: #3d6ea6;
 }
+  
+.events_list {
+  height: 100%;
+  overflow: auto;
+}
+
+.event_item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  width: 100%;
+  font-weight: 500;
+}
+
+.event_item > span {
+  color: #3d6ea6;
+  margin-bottom: 0.2em;
+}
